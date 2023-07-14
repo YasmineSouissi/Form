@@ -1,5 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.css';
-label, button {
+label, button,a {
     margin-bottom: 0.7rem;
     margin-top: 0.7rem;
+    margin-left: 0.5rem;
 }

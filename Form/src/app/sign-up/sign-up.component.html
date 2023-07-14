@@ -13,7 +13,7 @@
   
       <div class="form-group">
         <label for="InputPassword">Password</label>
-        <input type="password" class="form-control" id="InputPassword" placeholder="Password" required name="password" ngModel #password="ngModel" pattern=".{4,}">
+        <input type="password" class="form-control" id="InputPassword" placeholder="Password" required name="password" ngModel #password="ngModel" pattern=".{4,}" [(ngModel)]="user.password">
       </div>
 
       <div *ngIf="password.invalid " >
@@ -21,7 +21,10 @@
         <div *ngIf="password.errors?.['pattern']" class="alert alert-danger" role="alert">invalid password</div>
       </div>
   
-      <button [disabled]="f.invalid" type="submit" (click)="submit(f)" class="btn btn-outline-success rounded">Submit</button>
+      <div >
+        <button [disabled]="f.invalid" type="submit" (click)="submit(f)" class="btn btn-outline-success rounded">Submit</button>
+        <a  type="button" class="btn btn-outline-secondary" routerLink="">Back</a>
+      </div>
     </form>
   </div>
   
