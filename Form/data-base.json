@@ -9,6 +9,46 @@
       "id": 2,
       "email": "jane@example.com",
       "password": "password2"
+    },
+    {
+      "id": 3,
+      "email": "souissiy35@gmail.com",
+      "password": "aaaa"
+    },
+    {
+      "id": 4,
+      "email": "sami@gmail.com",
+      "password": "zzzz"
+    },
+    {
+      "id": 5,
+      "email": "ghada@gmail.com",
+      "password": "fffff"
+    },
+    {
+      "id": 6,
+      "email": "test@example.com",
+      "password": "test123"
+    },
+    {
+      "id": 7,
+      "email": "user@gmail.com",
+      "password": "userpass"
+    },
+    {
+      "id": 8,
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": 9,
+      "email": "amy@example.com",
+      "password": "amy456"
+    },
+    {
+      "id": 10,
+      "email": "mark@example.com",
+      "password": "mark789"
     }
   ]
 }

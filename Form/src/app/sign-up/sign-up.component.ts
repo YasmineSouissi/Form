@@ -12,29 +12,18 @@ export class SignUpComponent {
 
   users: User[]= [];
   user: User=new User();
-  constructor(private userServ: UserServicesService){}
+  constructor(public userServ: UserServicesService){}
   ngOnInit():void {
     this.userServ.getUsers().subscribe(
       (data: User[]) => this.users=data);
   }
 
-  addUser(){
-    this.userServ.addUser(this.user).subscribe(
-      ()=> this.users= [this.user,...this.users]
-    );
-  }
-
   submit(form: NgForm){
     User.id++;
-    /*this.users.push(this.user);*/
-    this.userServ.addUser(this.user).subscribe(
-      ()=> this.users= [this.user,...this.users]
-    );
-    console.log(this.users);
+    this.userServ.getUsers().subscribe((data: User[]) => this.users=data);
+    this.userServ.addUser(this.user).subscribe(()=> this.users= [this.user,...this.users]);
     this.user=new User();
     form.reset();
-    
-  
   }
- 
+  
 }
