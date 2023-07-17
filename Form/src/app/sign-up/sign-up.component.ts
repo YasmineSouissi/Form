@@ -18,12 +18,24 @@ export class SignUpComponent {
       (data: User[]) => this.users=data);
   }
 
-  submit(form: NgForm){
-    User.id++;
-    this.userServ.getUsers().subscribe((data: User[]) => this.users=data);
-    this.userServ.addUser(this.user).subscribe(()=> this.users= [this.user,...this.users]);
-    this.user=new User();
-    form.reset();
+  submit(form: NgForm) {
+    User.id++; 
+    this.userServ.addUser(this.user).subscribe(
+        () => {
+        this.userServ.getUsers().subscribe((data: User[]) => {
+          this.users = data;
+          form.reset(); 
+          this.user = new User(); 
+        });
+      },
+      (error) => {
+      
+        console.error('Error adding user:', error);
+      }
+    );
   }
+  
+  
+  
   
 }

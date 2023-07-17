@@ -9,6 +9,7 @@ import { UserServicesService } from '../services/user-services.service';
 })
 export class SignInComponent {
   user: User = new User();
+  existingEmail:boolean=true;
   constructor(public userServ: UserServicesService) {}
   users: User[] = [];
 
@@ -28,9 +29,15 @@ export class SignInComponent {
     return this.users.some(user => user.email === email);
   }*/
 
-  checkUsersPassword(user:User): boolean {
+  checkUsersPassword(user: User): boolean {
     const i: number = this.userServ.findUserIndexByEmail(user.email);
-    console.log(this.users[i].password === user.password)
-    return this.users[i].password === user.password;
+    if (i !== -1) {
+      const isPasswordMatch = this.users[i].password === user.password;
+      console.log(isPasswordMatch);
+      return isPasswordMatch;
+    } else {
+      this.existingEmail = false;
+      return false;
+    }
   }
-}
+}  
