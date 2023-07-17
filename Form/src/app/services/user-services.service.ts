@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../Model/user';
-import * as crypto from 'crypto';
+import { lib } from 'crypto-js';
+import { SHA256 } from 'crypto-js';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +29,13 @@ export class UserServicesService {
     return (index !== -1);
   }
  
+  generateSalt(length: number = 16): string {
+    const randomBytes = lib.WordArray.random(length);
+    const salt = randomBytes.toString();
+    return salt;
+  }
+   hashPassword(password: string): string {
+    const hashedPassword = SHA256(password).toString();
+    return hashedPassword;
+  }
   }

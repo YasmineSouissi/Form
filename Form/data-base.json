@@ -1,69 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
       "email": "john@example.com",
-      "password": "password1"
+      "password": "96d9632f363564cc3032521409cf22a852f2032eec099ed5967c0d000cec607a",
+      "id": 1
     },
     {
-      "id": 2,
-      "email": "jane@example.com",
-      "password": "password2"
-    },
-    {
-      "id": 3,
       "email": "souissiy35@gmail.com",
-      "password": "aaaa"
+      "password": "ba9fdc15e059b2b63ddaaafc67bf76a440c122fec68dce7ccdac0ce50716cf0f",
+      "id": 2
     },
     {
-      "id": 4,
-      "email": "sami@gmail.com",
-      "password": "zzzz"
-    },
-    {
-      "id": 5,
-      "email": "ghada@gmail.com",
-      "password": "fffff"
-    },
-    {
-      "id": 6,
-      "email": "test@example.com",
-      "password": "test123"
-    },
-    {
-      "id": 7,
-      "email": "user@gmail.com",
-      "password": "userpass"
-    },
-    {
-      "id": 8,
-      "email": "admin@example.com",
-      "password": "admin123"
-    },
-    {
-      "id": 9,
-      "email": "amy@example.com",
-      "password": "amy456"
-    },
-    {
-      "id": 10,
-      "email": "mark@example.com",
-      "password": "mark789"
-    },
-    {
-      "email": "bbbbb@gmail.com",
-      "password": "hyudfguy",
-      "id": 11
-    },
-    {
-      "email": "fgthrt@gmail.vom",
-      "password": "thrthyryr",
-      "id": 12
+      "email": "dddd@gmail.com",
+      "password": "5bf8aa57fc5a6bc547decf1cc6db63f10deb55a3c6c5df497d631fb3d95e1abf",
+      "id": 3
     },
     {
       "email": "fff@gmail.com",
-      "password": "jhjjg",
-      "id": 13
+      "password": "f29a448b780745bf2e10667f46c442b102e75e76a46a1fff969641866225ab56",
+      "id": 4
     }
   ]
 }
