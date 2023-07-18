@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from '../Model/user';
 import { UserServicesService } from '../services/user-services.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +12,9 @@ import { UserServicesService } from '../services/user-services.service';
 export class SignInComponent {
   user: User = new User();
   existingEmail:boolean=true;
-  constructor(public userServ: UserServicesService) {}
+  wrongPassword:boolean=false;
+  constructor(public userServ: UserServicesService,private router: Router) {}
+  
   users: User[] = [];
 
   ngOnInit(): void {
@@ -31,13 +35,30 @@ export class SignInComponent {
 
   checkUsersPassword(user: User): boolean {
     const i: number = this.userServ.findUserIndexByEmail(user.email);
+    //console.log(i);
     if (i !== -1) {
-      const isPasswordMatch = this.users[i].password === user.password;
+      const enteredPasswordHash = this.userServ.hashPassword(user.password); 
+      const isPasswordMatch = enteredPasswordHash === this.users[i].password; 
       console.log(isPasswordMatch);
       return isPasswordMatch;
     } else {
       this.existingEmail = false;
       return false;
     }
+
   }
-}  
+  signIn(user: User){
+    const pwdIsCorrect=this.checkUsersPassword(user);
+    if(pwdIsCorrect){
+      this.router.navigate(['/Home']);
+      console.log("Correct Password");
+    }
+    else{
+      console.log("Incorrect Password");
+      this.wrongPassword=true;
+    }
+    
+    }
+    
+  
+}

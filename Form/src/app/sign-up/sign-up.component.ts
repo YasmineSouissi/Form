@@ -14,6 +14,7 @@ export class SignUpComponent {
 
   users: User[]= [];
   user: User=new User();
+  userAux: User=new User();
   existingEmail:boolean=false;
   constructor(public userServ: UserServicesService){}
   ngOnInit():void {
@@ -31,7 +32,9 @@ export class SignUpComponent {
         if (existingUser) {
           return of(existingUser);
         } else {
+         //console.log("before: ",this.user.password);
           this.user.password = this.userServ.hashPassword(this.user.password);
+          //console.log("After: ",this.user.password);
           return this.userServ.addUser(this.user).pipe(
             tap(() => {
               form.resetForm(); // Reset the form
