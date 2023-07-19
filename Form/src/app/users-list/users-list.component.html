@@ -6,18 +6,20 @@
                 <thead>
                 <tr>
                     <th scope="col">Email Adress </th>
+                    <th scope="col">Phone Number </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let user of usersList; let i=index">
                     <td>{{user.email}}</td>
+                    <td>{{user.phoneNumber}}</td>
+
                 </tr>
+                
                 </tbody>
             </table>
         </div>
-        <div class="g-col-4">
-            <app-sign-up></app-sign-up>
-        </div>
+     
     </div>
 
 </div>
