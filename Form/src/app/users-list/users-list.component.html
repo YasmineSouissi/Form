@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Users</h2>
+    <div class="grid" style="--bs-columns: 18; --bs-gap: .5rem;">
+        <div style="grid-column: span 14;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Email Adress </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of usersList; let i=index">
+                    <td>{{user.email}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="g-col-4">
+            <app-sign-up></app-sign-up>
+        </div>
+    </div>
+
+</div>
+
+
+  
