@@ -1,0 +1,24 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .centered-div {
+    /* Styles pour le div à centrer */
+    width: 300px; /* Largeur souhaitée */
+    height: 200px; /* Hauteur souhaitée */
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 20px;
+  }
+
+    /* Media query pour ajuster le centrage sur les écrans plus petits */
+    @media (max-width: 768px) {
+      body, html {
+        flex-direction: column;
+      }
+    }
