@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TwilioService } from '../twilio.service';
 import { User } from '../Model/user';
 
 

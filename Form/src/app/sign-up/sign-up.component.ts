@@ -3,7 +3,7 @@ import { User } from '../Model/user';
 import { Form, FormArray, NgForm } from '@angular/forms';
 import { UserServicesService } from '../services/user-services.service';
 import { Observable, of, switchMap, tap } from 'rxjs';
-import * as bcrypt from 'bcryptjs';
+import { TwilioService } from '../services/twilio.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,7 +16,8 @@ export class SignUpComponent {
   user: User=new User();
   userAux: User=new User();
   existingEmail:boolean=false;
-  constructor(public userServ: UserServicesService){}
+ 
+  constructor(public userServ: UserServicesService, private twilioService: TwilioService){}
   ngOnInit():void {
     this.userServ.getUsers().subscribe(
       (data: User[]) => this.users=data);
@@ -35,6 +36,16 @@ export class SignUpComponent {
          //console.log("before: ",this.user.password);
           this.user.password = this.userServ.hashPassword(this.user.password);
           //console.log("After: ",this.user.password);
+          this.twilioService.sendSMS(this.user.phoneNumber).subscribe(
+            (response) => {
+              console.log('SMS sent successfully.');
+              // Add any additional handling for a successful response here verif code 
+            },
+            (error) => {
+              console.error('Error sending SMS:', error);
+              // Add any error handling here
+            }
+          );
           return this.userServ.addUser(this.user).pipe(
             tap(() => {
               form.resetForm(); // Reset the form

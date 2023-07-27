@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { UserServicesService } from './user-services.service';
 
 describe('UserServicesService', () => {
@@ -10,7 +9,6 @@ describe('UserServicesService', () => {
     service = TestBed.inject(UserServicesService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should be created', () => {    expect(service).toBeTruthy();
   });
 });

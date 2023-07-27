@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label for="InputPhoneNumber">Phone Number</label>
-        <input type="tel" class="form-control" id="InputPhoneNumber" placeholder="Enter phone number" required name="phoneNumber" pattern="[0-9]{8} $" ngModel [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel">
+        <input type="tel" class="form-control" id="InputPhoneNumber" placeholder="Enter phone number" required name="phoneNumber" pattern="" ngModel [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel">
       </div>
 
       <div *ngIf="phoneNumber.invalid " >
