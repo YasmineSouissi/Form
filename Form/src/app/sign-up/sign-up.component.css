@@ -1,6 +1,164 @@
 @import '~bootstrap/dist/css/bootstrap.css';
-label, button,a {
-    margin-bottom: 0.7rem;
-    margin-top: 0.7rem;
-    margin-left: 0.5rem;
-}
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .ftco-section {
+    padding: 7rem 0;
+  }
+  
+  .ftco-section h2 {
+    font-size: 28px;
+    color: #007bff;
+  }
+  
+  .wrap {
+    position: relative;
+  }
+  
+  .img {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10px;
+  }
+  
+  .login-wrap {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  .login-wrap h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .login-wrap .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .login-wrap .form-control {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+  }
+  
+  .login-wrap .form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+  }
+  
+  .form-control-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    padding: 10px 0;
+    transition: all 0.3s;
+  }
+  
+  .login-wrap .form-control:focus + .form-control-placeholder,
+  .login-wrap .form-control:not(:placeholder-shown) + .form-control-placeholder {
+    font-size: 12px;
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  
+  .toggle-password {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: #007bff;
+  }
+  
+  .submit {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .submit:hover {
+    background-color: #0056b3;
+  }
+  
+  .checkbox-wrap {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+  }
+  
+  .checkbox-wrap input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .checkbox-wrap:hover input ~ .checkmark {
+    background-color: #f1f1f1;
+  }
+  
+  .checkbox-wrap input:checked ~ .checkmark {
+    background-color: #007bff;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-wrap input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-wrap .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .text-center a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .text-center a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { User } from '../Model/user';
 import { TwilioService } from '../services/twilio.service';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { User } from '../Model/user';
 @Component({
-  selector: 'app-code-verification',
-  templateUrl: './code-verification.component.html',
-  styleUrls: ['./code-verification.component.css']
+  selector: 'app-otp-verification',
+  templateUrl: './otp-verification.component.html',
+  styleUrls: ['./otp-verification.component.css']
 })
-export class CodeVerificationComponent {
-    user : User= new User(); 
+export class OTPVerificationComponent {
+
+  user : User= new User(); 
     entredCode: string='';
     codeDigits: string[] = ['', '', '', '', '', '']; 
     constructor(public twilioService : TwilioService){}
@@ -18,6 +16,7 @@ export class CodeVerificationComponent {
       const code = this.codeDigits.join(''); // Join the digits to form the complete code
       return code;
     }
+    
     
     confirm(){
       this.entredCode=this.getEnteredCode();
@@ -30,6 +29,4 @@ export class CodeVerificationComponent {
       }
 
     }
-  }
-
-
+}

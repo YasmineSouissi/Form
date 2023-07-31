@@ -1,24 +1,68 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+body {
+  background-color:rgb(13, 110, 253);
+}
 
-  .centered-div {
-    /* Styles pour le div à centrer */
-    width: 300px; /* Largeur souhaitée */
-    height: 200px; /* Hauteur souhaitée */
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    text-align: center;
-    padding: 20px;
-  }
+.height-100 {
+  height: 100vh;
+}
 
-    /* Media query pour ajuster le centrage sur les écrans plus petits */
-    @media (max-width: 768px) {
-      body, html {
-        flex-direction: column;
-      }
-    }
+.card {
+  width: 400px;
+  border: none;
+  height: 300px;
+  box-shadow: 0px 5px 20px 0px #d2dae3;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card h6 {
+  color: rgb(13, 110, 253);
+  font-size: 20px;
+}
+
+.inputs input {
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.card-2 {
+  background-color: #fff;
+  padding: 10px;
+  width: 350px;
+  height: 100px;
+  bottom: -50px;
+  left: 20px;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.card-2 .content {
+  margin-top: 50px;
+}
+
+.card-2 .content a {
+  color: blue;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid rgb(13, 110, 253);
+}
+
+.validate {
+  border-radius: 20px;
+  height: 40px;
+  background-color: rgb(13, 110, 253);
+  border: 1px solid rgb(13, 110, 253);
+  width: 140px;
+}

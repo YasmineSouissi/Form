@@ -1,0 +1,30 @@
+<div class="container height-100 d-flex justify-content-center align-items-center">
+    <div class="position-relative">
+      <div class="card p-2 text-center">
+        <h6>Please enter the verification code <br> to verify your account</h6>
+        <div>
+          <span>A code has been sent to your phone number</span>
+          <!--<small>{{user.phoneNumber}}</small>>--> 
+        </div>
+        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[0]" maxlength="1" />
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[1]" maxlength="1" />
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[2]" maxlength="1" />
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[3]" maxlength="1" />
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[4]" maxlength="1" />
+          <input class="m-2 text-center form-control rounded" type="text" [(ngModel)]="codeDigits[5]" maxlength="1" />
+        </div>
+        
+        <div class="mt-4">
+          <button class="btn btn-danger px-4 validate" (click)="confirm()">Validate</button>
+        </div>
+      </div>
+      <div class="card-2">
+        <div class="content d-flex justify-content-center align-items-center">
+          <span>Didn't get the code</span>
+          <a href="#" class="text-decoration-none ms-3">Resend</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

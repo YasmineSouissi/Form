@@ -1,0 +1,15 @@
+
+.heading {
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .table-header {
+    background-color: #007bff;
+    color: white;
+  }
+  .text-center a:hover {
+    text-decoration: underline;
+  }
+  
+  

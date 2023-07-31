@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../Model/user';
 import { UserServicesService } from '../services/user-services.service';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +13,10 @@ export class SignInComponent {
   user: User = new User();
   existingEmail:boolean=true;
   wrongPassword:boolean=false;
-  constructor(public userServ: UserServicesService,private router: Router) {}
+  signInForm!: FormGroup; 
+    constructor(public userServ: UserServicesService,private router: Router,private formBuilder: FormBuilder) { 
+    
+  }
   
   users: User[] = [];
 
@@ -21,6 +24,11 @@ export class SignInComponent {
     this.userServ.getUsers().subscribe((data: User[]) => {
       this.users = data;
       console.log("USERS:", this.users); // Log the users inside the subscription callback
+    });
+
+    this.signInForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
@@ -34,10 +42,13 @@ export class SignInComponent {
   }*/
 
   checkUsersPassword(user: User): boolean {
+    user.email=this.signInForm.get("email")?.value;
     const i: number = this.userServ.findUserIndexByEmail(user.email);
-    //console.log(i);
+    //console.log("email : ", user.email);
     if (i !== -1) {
+      
       const enteredPasswordHash = this.userServ.hashPassword(user.password); 
+      console.log(enteredPasswordHash);
       const isPasswordMatch = enteredPasswordHash === this.users[i].password; 
       console.log(isPasswordMatch);
       return isPasswordMatch;
@@ -48,6 +59,8 @@ export class SignInComponent {
 
   }
   signIn(user: User){
+    user.email=this.signInForm.get("email")?.value;
+    user.password=this.signInForm.get("password")?.value;
     const pwdIsCorrect=this.checkUsersPassword(user);
     if(pwdIsCorrect){
       this.router.navigate(['/Home']);
@@ -59,6 +72,15 @@ export class SignInComponent {
     }
     
     }
-    
+
+    isFormValid() {
+      return this.signInForm.valid;
+    }
+    isControlInvalid(controlName: string): boolean {
+      const control = this.signInForm.get(controlName);
+      return control ? control.invalid && control.touched : false;
+    }
   
 }
+
+

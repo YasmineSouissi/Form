@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TwilioService {
   private apiUrl = 'http://localhost:4000/send-sms';
-  private code =this.generateVerificationCode();
+  private code: string =this.generateVerificationCode();
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +32,8 @@ export class TwilioService {
 
   verifCode(c:string){
     return this.code===c;
+  }
+  getCode(){
+    return this.code;
   }
 }

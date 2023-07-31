@@ -31,15 +31,21 @@ export class UserServicesService {
   }
   
   findUserIndexByEmail(email: string): number {
-    const index = this.users.findIndex(user => user.email === email);
-    return index;
+    let i = -1; 
+    for (let j = 0; j < this.users.length; j++) {
+      if (this.users[j].email.localeCompare(email) === 0) {
+        i = j;
+        break; 
+      }
+    }
+    //console.log("index: ", i);
+    return i;
   }
   
   
+  
   checkUsersEmail(user: User): boolean {
-    const index = this.findUserIndexByEmail(user.email);
-    //console.log("user: ",this.users[index]);
-    return (index !== -1);
+    return (this.findUserIndexByEmail(user.email) !== -1);
   }
  
   /*generateSalt(length: number = 16): string {

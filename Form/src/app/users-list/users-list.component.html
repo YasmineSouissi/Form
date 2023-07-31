@@ -1,28 +1,22 @@
 <div class="container">
-    <h2>Users</h2>
+    <h2 class="heading">Users</h2>
     <div class="grid" style="--bs-columns: 18; --bs-gap: .5rem;">
-        <div style="grid-column: span 14;">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Email Adress </th>
-                    <th scope="col">Phone Number </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let user of usersList; let i=index">
-                    <td>{{user.email}}</td>
-                    <td>{{user.phoneNumber}}</td>
-
-                </tr>
-                
-                </tbody>
-            </table>
-        </div>
-     
+      <div style="grid-column: span 14;">
+        <table class="table table-striped" style="width: 100%;">
+          <thead>
+            <tr>
+              <th scope="col" class="table-header">Email Address</th>
+              <th scope="col" class="table-header">Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersList; let i=index">
+              <td>{{user.email}}</td>
+              <td>{{user.phoneNumber}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-</div>
-
-
+  </div>
   

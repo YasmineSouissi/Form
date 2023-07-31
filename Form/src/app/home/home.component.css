@@ -1,4 +1,16 @@
-.container1{
+.container1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .item1, .item2 {
+    flex: 1;
+    min-width: 300px; /* Adjust the min-width as per your preference */
+  }
+  
+  .container1{
     display: grid;
     gap: 50px 100px;
 }
