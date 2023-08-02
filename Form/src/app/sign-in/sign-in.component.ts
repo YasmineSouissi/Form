@@ -23,7 +23,7 @@ export class SignInComponent {
   ngOnInit(): void {
     this.userServ.getUsers().subscribe((data: User[]) => {
       this.users = data;
-      console.log("USERS:", this.users); // Log the users inside the subscription callback
+      //console.log("USERS:", this.users); // Log the users inside the subscription callback
     });
 
     this.signInForm = this.formBuilder.group({
@@ -48,9 +48,9 @@ export class SignInComponent {
     if (i !== -1) {
       
       const enteredPasswordHash = this.userServ.hashPassword(user.password); 
-      console.log(enteredPasswordHash);
+      //console.log(enteredPasswordHash);
       const isPasswordMatch = enteredPasswordHash === this.users[i].password; 
-      console.log(isPasswordMatch);
+      //console.log(isPasswordMatch);
       return isPasswordMatch;
     } else {
       this.existingEmail = false;

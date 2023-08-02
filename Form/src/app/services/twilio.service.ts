@@ -12,7 +12,7 @@ export class TwilioService {
   constructor(private http: HttpClient) {}
 
   generateVerificationCode(): string {
-    const codeLength = 4;
+    const codeLength = 6;
     const characters = '0123456789'; // Caractères autorisés pour le code
   
     let code = '';
@@ -26,6 +26,7 @@ export class TwilioService {
 
   sendSMS(phoneNumber: string) {
     let message='your verification code is : '+this.code;
+    console.log("code: ",this.code);
     const payload = { phoneNumber, message };
     return this.http.post<any>(this.apiUrl, payload);
   }

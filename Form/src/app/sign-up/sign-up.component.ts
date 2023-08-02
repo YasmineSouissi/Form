@@ -30,43 +30,39 @@ export class SignUpComponent {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(4)]],
         phoneNumber: ['', [Validators.required, Validators.pattern(".{12}")
-      ], // Add the appropriate validation
+      ], 
         ]
       });
   }
 
 
   submit(form: FormGroup): Observable<User | User[]> {
-    
     return this.userServ.http.get<User[]>(this.userServ.url).pipe(
       switchMap((users: User[]) => {
-        this.user.email=this.signUpForm.get('email')?.value;
-        this.user.phoneNumber=this.signUpForm.get('phoneNumber')?.value;
-        this.user.password=this.signUpForm.get('password')?.value;
+        this.user.email = this.signUpForm.get('email')?.value;
+        this.user.phoneNumber = this.signUpForm.get('phoneNumber')?.value;
+        this.user.password = this.userServ.hashPassword(this.signUpForm.get('password')?.value);
         const existingUser = users.find(u => u.email === this.user.email);
-        this.existingEmail = (existingUser != undefined);
+        this.existingEmail = (existingUser !== undefined);
   
         if (existingUser) {
+          // form.reset();
           return of(existingUser);
         } else {
-         //console.log("before: ",this.user.password);
-          this.user.password = this.userServ.hashPassword(this.user.password);
-          
-          //console.log("After: ",this.user.password);
-          this.twilioService.sendSMS(this.user.phoneNumber).subscribe(
-            (response) => {
-              console.log('SMS sent successfully.');
-              // Add any additional handling for a successful response here verif code
-              this.router.navigate(['/OTP-Verification']); 
-            },
-            (error) => {
-              console.error('Error sending SMS:', error);
-              // Add any error handling here
-            }
-          );
-          return this.userServ.addUser(this.user).pipe(
+          // console.log("before: ", this.user.password);
+          // console.log("After: ", this.user.password);
+  
+          return of(this.user).pipe(
             tap(() => {
-              form.reset(); // Reset the form
+              //console.log("Num : ", this.user.phoneNumber);
+              this.router.navigate(['/OTP-Verification'], {
+                queryParams: {
+                  password: this.user.password,
+                  phoneNumber: this.user.phoneNumber,
+                  email: this.user.email
+                }
+              });
+              form.reset();
               this.user = new User();
             })
           );
@@ -75,7 +71,6 @@ export class SignUpComponent {
     );
   }
   
-
   onSubmit() {
     this.submit(this.signUpForm).subscribe(
       (response: User | User[]) => {
@@ -95,7 +90,9 @@ isControlInvalid(controlName: string): boolean {
   const control = this.signUpForm.get(controlName);
   return control ? control.invalid && control.touched : false;
 }
-
+public getPhoneNumber(){
+  return this.signUpForm.get('phoneNumber')?.value;
+}
 
   /*submit(form: NgForm) {
     User.id++;

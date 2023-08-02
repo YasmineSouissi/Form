@@ -1,0 +1,17 @@
+alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+ 
+  }
+  
+
+  
+alert-danger svg.bi {
+    fill: #721c24;
+  }
+  
+alert-danger div {
+    margin-left: 10px;
+  }
+  

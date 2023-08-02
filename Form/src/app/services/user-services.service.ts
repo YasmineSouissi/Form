@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../Model/user';
 import { SHA256 } from 'crypto-js';
+import { catchError, switchMap, throwError } from 'rxjs';
 
 
 
@@ -26,9 +27,18 @@ export class UserServicesService {
     }
   
   
-   addUser(u: User) {
-    return this.http.post<User[]>(this.url, u);
-  }
+    addUser(u: User) {
+      return this.getUsers().pipe(
+        switchMap((users: User[]) => {
+          return this.http.post<User[]>(this.url, u).pipe(
+            catchError((error) => {
+              console.error('Error adding user:', error);
+              return throwError('An error occurred while adding the user. Please try again later.');
+            })
+          );
+        })
+      );
+    }
   
   findUserIndexByEmail(email: string): number {
     let i = -1; 
