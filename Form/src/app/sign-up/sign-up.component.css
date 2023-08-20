@@ -165,3 +165,7 @@ body {
     color: red;
     text-size-adjust: 2em;
   }
+  button{
+    margin-right: 0.5em;
+  }
+  

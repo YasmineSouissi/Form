@@ -23,6 +23,12 @@
       "email": "aaaa@gmail.com",
       "password": "61be55a8e2f6b4e172338bddf184d6dbee29c98853e0a0485ecee7f27b9af0b4",
       "phoneNumber": "+21697942993"
+    },
+    {
+      "id": 5,
+      "email": "soui@gmail.com",
+      "password": "ed968e840d10d2d313a870bc131a4e2c311d7ad09bdf32b3418147221f51a6e2",
+      "phoneNumber": "+21624356456"
     }
   ]
 }
